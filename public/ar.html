@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الماس — توابل وأعشاب مغربية أصيلة</title>
+  <meta name="description" content="نوفر أجود أنواع التوابل والأعشاب للمطاعم والفنادق والمنازل في المغرب. أسعار الجملة والتجزئة.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #C9A84C;
+      --gold-dark:  #b8962e;
+      --gold-light: #FEF3C7;
+      --dark:       #1A1A2E;
+      --darker:     #0D0D1A;
+      --dark2:      #16213E;
+      --cream:      #F9F5EC;
+      --warm:       #F5EDD8;
+      --text:       #1A1A2E;
+      --muted:      #6B6B8A;
+      --wa:         #25D366;
+      --wa-dark:    #1ebe57;
+      --white:      #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,26,46,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 40px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; }
+    .nav-logo span:first-child { font-size: 22px; }
+    .nav-logo .brand { color: var(--gold); font-weight: 900; font-size: 1.3rem; letter-spacing: 2px; }
+    .nav-logo .sub { color: rgba(255,255,255,0.4); font-size: 0.75rem; }
+    .nav-cta {
+      background: var(--gold); color: white; border: none;
+      padding: 10px 24px; border-radius: 50px; font-family: 'Cairo', sans-serif;
+      font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: background .2s;
+      text-decoration: none; display: inline-block;
+    }
+    .nav-cta:hover { background: var(--gold-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      min-height: 100vh;
+      padding: 100px 60px 60px;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 20% 20%, rgba(201,168,76,0.05) 0%, transparent 40%);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    /* Text side */
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); padding: 6px 16px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900; color: white; line-height: 1.3; margin-bottom: 20px;
+    }
+    .hero h1 .accent { color: var(--gold); }
+    .hero p {
+      color: rgba(255,255,255,0.6); font-size: 1.05rem;
+      max-width: 480px; margin-bottom: 28px; line-height: 1.8;
+    }
+    .trust-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 14px; padding: 16px 20px;
+      display: flex; align-items: center; gap: 12px; max-width: 440px;
+    }
+    .trust-box .icon { font-size: 1.8rem; flex-shrink: 0; }
+    .trust-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0; }
+    .trust-box strong { color: var(--gold); }
+
+    /* Form side */
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      border: 1px solid rgba(201,168,76,0.15);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .form-card-top {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), #E8C070, var(--gold));
+    }
+    .form-body { padding: 32px 28px 24px; }
+    .form-title {
+      font-size: 1.25rem; font-weight: 800; color: var(--dark);
+      margin-bottom: 6px; text-align: center;
+    }
+    .form-subtitle {
+      font-size: 0.85rem; color: var(--muted);
+      text-align: center; margin-bottom: 24px;
+    }
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block; font-size: 0.82rem; font-weight: 700;
+      color: var(--muted); margin-bottom: 6px; text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .field input, .field select {
+      width: 100%; padding: 13px 16px;
+      border: 1.5px solid #e5e7eb; border-radius: 12px;
+      font-family: 'Cairo', sans-serif; font-size: 1rem;
+      color: var(--text); background: white; outline: none; transition: border-color .2s;
+      direction: rtl;
+    }
+    .field input:focus, .field select:focus { border-color: var(--gold); }
+    /* prevent iOS zoom */
+    .field input, .field select { font-size: 16px; }
+
+    .submit-btn {
+      width: 100%; padding: 15px;
+      background: var(--gold); border: none; border-radius: 50px;
+      font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 800;
+      color: white; cursor: pointer; margin-top: 8px; transition: background .2s, transform .1s;
+    }
+    .submit-btn:hover { background: var(--gold-dark); }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn.loading { opacity: 0.7; pointer-events: none; }
+
+    .form-privacy {
+      text-align: center; font-size: 0.78rem; color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Reviews below form */
+    .reviews { padding: 0 4px 4px; }
+    .review-divider {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--muted); font-size: 0.8rem; margin: 20px 0 14px;
+    }
+    .review-divider::before, .review-divider::after {
+      content: ''; flex: 1; height: 1px; background: #e5e7eb;
+    }
+    .review-item {
+      background: var(--warm); border-radius: 14px;
+      padding: 14px 16px; margin-bottom: 10px;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+    .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .review-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--dark); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .review-name { font-weight: 700; font-size: 0.85rem; color: var(--dark); }
+    .review-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 1px; }
+    .review-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .review-location { font-size: 0.75rem; color: rgba(106,106,138,0.7); margin-top: 4px; }
+
+    /* ── CARDS STRIP ── */
+    .cards-section {
+      background: white; padding: 70px 40px;
+    }
+    .section-label {
+      text-align: center; color: var(--gold); font-size: 0.8rem;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .section-title {
+      text-align: center; font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900; color: var(--dark); margin-bottom: 12px;
+    }
+    .section-title .accent { color: var(--gold); }
+    .section-sub {
+      text-align: center; color: var(--muted); max-width: 520px;
+      margin: 0 auto 48px; font-size: 0.95rem;
+    }
+    .cards-grid {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+    }
+    .card {
+      background: var(--cream); border-radius: 16px; padding: 28px 22px;
+      border: 1.5px solid transparent; transition: all .25s; cursor: default;
+    }
+    .card:hover {
+      border-color: var(--gold); transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(201,168,76,0.12);
+    }
+    .card-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .card-title { font-weight: 800; font-size: 1rem; color: var(--dark); margin-bottom: 6px; }
+    .card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── STATS ── */
+    .stats-section {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      padding: 60px 40px;
+    }
+    .stats-grid {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 30px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2.5rem; font-weight: 900; color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ── SERVICES ── */
+    .services-section { padding: 70px 40px; background: var(--warm); }
+    .services-grid {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
+    }
+    .service-card {
+      background: white; border-radius: 16px; padding: 28px 24px;
+      border: 1.5px solid transparent; transition: all .25s;
+    }
+    .service-card:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(201,168,76,0.1); transform: translateY(-3px); }
+    .service-icon { font-size: 2rem; margin-bottom: 14px; }
+    .service-title { font-weight: 800; font-size: 1.05rem; color: var(--dark); margin-bottom: 8px; }
+    .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--gold); padding: 50px 40px; text-align: center;
+    }
+    .cta-band h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: white; margin-bottom: 10px; }
+    .cta-band p { color: rgba(255,255,255,0.85); margin-bottom: 24px; font-size: 0.95rem; }
+    .cta-band .btn-white {
+      background: white; color: var(--gold-dark);
+      padding: 14px 36px; border-radius: 50px; font-weight: 800;
+      font-family: 'Cairo', sans-serif; font-size: 1rem;
+      border: none; cursor: pointer; text-decoration: none; display: inline-block;
+      transition: transform .15s;
+    }
+    .cta-band .btn-white:hover { transform: scale(1.03); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--darker); color: rgba(255,255,255,0.5);
+      padding: 40px; text-align: center; font-size: 0.85rem;
+    }
+    footer .footer-brand { color: var(--gold); font-weight: 900; font-size: 1.1rem; margin-bottom: 8px; }
+    footer .footer-tags {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 16px 0;
+    }
+    footer .tag {
+      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2);
+      color: var(--gold); padding: 4px 12px; border-radius: 50px; font-size: 0.78rem;
+    }
+
+    /* ── WA FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 24px; left: 24px; z-index: 200;
+      background: var(--wa); color: white;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+    .wa-float svg { width: 28px; height: 28px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { padding: 88px 20px 48px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      nav { padding: 12px 20px; }
+      .cards-section, .services-section, .stats-section { padding: 50px 20px; }
+    }
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 1.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span>✨</span>
+    <span class="brand">الماس</span>
+    <span class="sub">توابل وأعشاب</span>
+  </div>
+  <a href="#leadForm" class="nav-cta">اطلب عرض السعر</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Text -->
+    <div>
+      <div class="badge">⭐ الخيار الأول للمطاعم والفنادق في المغرب</div>
+      <h1>
+        توابل <span class="accent">أصيلة</span><br>
+        لمطبخك <span class="accent">المحترف</span>
+      </h1>
+      <p>
+        نوفر أجود أنواع التوابل والأعشاب المغربية للمطاعم والفنادق والمنازل.
+        جودة لا تُضاهى، توصيل سريع، وأسعار الجملة لكل الكميات.
+      </p>
+      <div class="trust-box">
+        <div class="icon">🏆</div>
+        <p><strong>+200 مطعم وفندق</strong> يثقون في الماس لتوريد توابلهم اليومية بشكل منتظم وموثوق.</p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div>
+      <div class="form-card" id="leadForm">
+        <div class="form-card-top"></div>
+        <div class="form-body">
+          <div class="form-title">احصل على عرض السعر الآن</div>
+          <div class="form-subtitle">مجاني وبدون التزام — نرد خلال دقائق</div>
+
+          <form id="almasForm">
+            <div class="field">
+              <label>الاسم الكامل</label>
+              <input type="text" name="name" placeholder="اكتب اسمك هنا..." required autocomplete="name">
+            </div>
+            <div class="field">
+              <label>رقم الهاتف / واتساب</label>
+              <input type="tel" name="phone" placeholder="+212 6XX XXX XXX" required autocomplete="tel">
+            </div>
+            <div class="field">
+              <label>نوع طلبك</label>
+              <select name="service" required>
+                <option value="" disabled selected>اختر نوع الطلب...</option>
+                <option value="restaurant">مطعم أو كافيه</option>
+                <option value="hotel">فندق أو رياض</option>
+                <option value="catering">شركة تقديم طعام</option>
+                <option value="home">منزل — مشتريات شخصية</option>
+                <option value="other">أخرى</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+              🚀 اطلب عرض السعر مجاناً
+            </button>
+            <p class="form-privacy">🔒 معلوماتك آمنة ولن تُشارك مع أي جهة</p>
+          </form>
+        </div>
+
+        <!-- Reviews -->
+        <div class="reviews" style="padding: 0 28px 28px;">
+          <div class="review-divider">ماذا يقول عملاؤنا</div>
+
+          <div class="review-item">
+            <div class="review-header">
+              <div class="review-avatar">👨‍🍳</div>
+              <div>
+                <div class="review-name">الشيف حسن البناني</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <div class="review-text">"الجودة ما فيها كلام — ثلاث سنوات كنعاودو من الماس ومرة خذلوناش. البهارات عندهم نقية ومشهية بالصح."</div>
+            <div class="review-location">📍 مطعم الريـاض — الدار البيضاء</div>
+          </div>
+
+          <div class="review-item">
+            <div class="review-header">
+              <div class="review-avatar">🏨</div>
+              <div>
+                <div class="review-name">فاطمة الزهراء — مديرة F&B</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <div class="review-text">"خدمة احترافية، توصيل في الوقت، والزعفران عندهم أحسن من كل اللي جربناه. نوصي بيهم لأي فندق."</div>
+            <div class="review-location">📍 فندق أطلس — مراكش</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CARDS STRIP -->
+<section class="cards-section">
+  <p class="section-label">لماذا الماس؟</p>
+  <h2 class="section-title">كل ما تحتاجه في <span class="accent">مكان واحد</span></h2>
+  <p class="section-sub">من المزارع مباشرة إلى مطبخك — نضمن لك الجودة في كل خطوة</p>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🌿</div>
+      <div class="card-title">منتجات طبيعية 100%</div>
+      <div class="card-desc">توابل وأعشاب طبيعية خالية من الإضافات والحشوات الاصطناعية</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <div class="card-title">توصيل سريع</div>
+      <div class="card-desc">توصيل في نفس اليوم بالدار البيضاء وخلال 24 ساعة في باقي المدن</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <div class="card-title">أسعار الجملة</div>
+      <div class="card-desc">أسعار تنافسية للمطاعم والفنادق مع خصومات خاصة للطلبات الكبيرة</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <div class="card-title">طلب عبر واتساب</div>
+      <div class="card-desc">اطلب توابلك مباشرة عبر واتساب بدون تعقيدات — نرد خلال دقائق</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-num">+150</div>
+      <div class="stat-label">منتج متوفر</div>
+    </div>
+    <div>
+      <div class="stat-num">+200</div>
+      <div class="stat-label">مطعم عميل</div>
+    </div>
+    <div>
+      <div class="stat-num">+50</div>
+      <div class="stat-label">فندق شريك</div>
+    </div>
+    <div>
+      <div class="stat-num">10+</div>
+      <div class="stat-label">سنوات خبرة</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <p class="section-label">خدماتنا</p>
+  <h2 class="section-title">نخدم <span class="accent">الجميع</span></h2>
+  <p class="section-sub">سواء كنت تدير مطعماً أو فندقاً أو تبحث عن جودة عالية لمنزلك</p>
+  <div class="services-grid" style="max-width:960px;margin:0 auto;">
+    <div class="service-card">
+      <div class="service-icon">🍽️</div>
+      <div class="service-title">المطاعم والكافيهات</div>
+      <div class="service-desc">أسعار الجملة، توصيل أسبوعي منتظم، ومزيج توابل مخصص لقائمة طعامك</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏨</div>
+      <div class="service-title">الفنادق والرياضات</div>
+      <div class="service-desc">توريد شامل، فاتورة شهرية، ومدير حساب مخصص لكل شريك</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <div class="service-title">التجزئة للمنازل</div>
+      <div class="service-desc">اطلب توابلك المفضلة بكميات صغيرة — جودة المطاعم لمطبخك</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>جاهز تطلب؟ نحن هنا</h2>
+  <p>تواصل معنا الآن على واتساب أو املأ الاستمارة أعلاه وسنتصل بك خلال دقائق</p>
+  <a href="https://wa.me/212600000000?text=السلام عليكم، أريد معرفة أسعار التوابل" target="_blank" class="btn-white">
+    💬 تحدث معنا على واتساب
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">✨ الماس — للتوابل والأعشاب</div>
+  <p>الدار البيضاء، المغرب 🇲🇦</p>
+  <div class="footer-tags">
+    <span class="tag">توابل مغربية</span>
+    <span class="tag">أعشاب طبيعية</span>
+    <span class="tag">مطاعم وفنادق</span>
+    <span class="tag">جملة وتجزئة</span>
+    <span class="tag">توصيل سريع</span>
+  </div>
+  <p style="margin-top:16px;font-size:0.78rem">© 2024 الماس. جميع الحقوق محفوظة.</p>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/212600000000?text=السلام عليكم، أريد معرفة أسعار التوابل"
+   target="_blank" class="wa-float" aria-label="واتساب">
+  <svg fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.565 4.14 1.54 5.87L0 24l6.302-1.519A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-4.932-1.329l-.354-.21-3.741.902.938-3.653-.23-.374A9.818 9.818 0 1112 21.818z"/>
+  </svg>
+</a>
+
+<script>
+  document.getElementById('almasForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.classList.add('loading');
+    btn.textContent = '⏳ جاري الإرسال...';
+
+    const data = {
+      name: this.name.value.trim(),
+      phone: this.phone.value.trim(),
+      service: this.service.value,
+      source: 'ar-landing',
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch (_) {}
+
+    window.location.href = '/success.html';
+  });
+</script>
+
+</body>
+</html>
