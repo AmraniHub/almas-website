@@ -1,4 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import { WA } from '@/lib/config'
+
+export const metadata: Metadata = {
+  title: 'Wholesale',
+  description: 'Wholesale spices and herbs for restaurants and hotels in Morocco. Competitive B2B pricing with fast delivery.',
+  openGraph: { title: 'Wholesale — Almas Spices & Herbs', description: 'B2B wholesale spices for restaurants and hotels in Morocco.' },
+}
 
 const tiers = [
   { name: 'Starter', icon: '🏪', who: 'Small restaurants & cafés', moq: '10 kg', discount: '10%', features: ['10+ product catalog access', 'Standard delivery', 'Email support', 'Monthly invoicing'] },
@@ -136,7 +144,7 @@ export default function WholesalePage() {
               <label className="block text-sm font-medium text-[#1A1A2E]/70 mb-1.5">Products You Need</label>
               <textarea rows={3} className="w-full border border-[#1A1A2E]/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#C9A84C] resize-none" placeholder="e.g. Ras El Hanout, Cumin, Saffron, Custom blends..." />
             </div>
-            <a href="https://wa.me/212600000000?text=Hello, I'm interested in wholesale pricing for my business."
+            <a href="{WA('Hello, I\'m interested in wholesale pricing for my business.')}?text=Hello, I'm interested in wholesale pricing for my business."
               target="_blank"
               className="w-full flex items-center justify-center gap-2 bg-[#C9A84C] text-white font-semibold py-3.5 rounded-full hover:bg-[#b8962e] transition-colors">
               Send via WhatsApp

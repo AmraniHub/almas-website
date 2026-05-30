@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Learn about Almas — our story, values, and commitment to premium Moroccan spices and herbs.',
+  openGraph: { title: 'About Almas — Our Story', description: 'Premium Moroccan spices sourced directly from farmers.' },
+}
 
 export default function AboutPage() {
   return (
